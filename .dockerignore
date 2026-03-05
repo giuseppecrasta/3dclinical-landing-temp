@@ -1,0 +1,15 @@
+node_modules
+.git
+.gitignore
+*.md
+client
+server
+patches
+*.log
+.env
+.DS_Store
+pnpm-lock.yaml
+package.json
+tsconfig*.json
+vite.config.ts
+components.json
