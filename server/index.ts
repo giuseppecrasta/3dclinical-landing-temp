@@ -52,6 +52,11 @@ async function startServer() {
   // Parse JSON bodies
   app.use(express.json());
 
+  // Health check endpoint (no rate limiting)
+  app.get("/api/health", (_req, res) => {
+    res.json({ status: "ok", timestamp: new Date().toISOString() });
+  });
+
   // API endpoint for contact form (with rate limiting)
   app.post("/api/contact", contactLimiter, async (req, res) => {
     const { type, email, name, message } = req.body;
@@ -224,10 +229,27 @@ Questa email è stata generata automaticamente dal form di contatto di 3D Clinic
   });
 
   // Serve static files from dist/public in production
-  const staticPath =
-    process.env.NODE_ENV === "production"
-      ? path.resolve(__dirname, "public")
-      : path.resolve(__dirname, "..", "dist", "public");
+  // Try multiple possible paths and use the first one that exists
+  const possiblePaths = [
+    path.resolve(__dirname, "public"),              // Docker/production: /app/public
+    path.resolve(__dirname, "..", "dist", "public"), // Local dev: ../dist/public
+    path.resolve(process.cwd(), "dist", "public"),  // Fallback: cwd/dist/public
+  ];
+
+  let staticPath = possiblePaths[0];
+  const fs = await import("fs");
+
+  for (const testPath of possiblePaths) {
+    if (fs.existsSync(testPath)) {
+      staticPath = testPath;
+      break;
+    }
+  }
+
+  console.log("📁 Static files path:", staticPath);
+  console.log("📂 __dirname:", __dirname);
+  console.log("🌍 NODE_ENV:", process.env.NODE_ENV);
+  console.log("✅ Path exists:", fs.existsSync(staticPath));
 
   app.use(express.static(staticPath));
 
