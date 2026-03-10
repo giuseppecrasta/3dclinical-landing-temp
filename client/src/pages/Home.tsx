@@ -71,25 +71,23 @@ export default function Home() {
               className="h-20 w-auto"
             />
           </div>
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#funzionalita" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <div className="flex items-center gap-8">
+            <a href="#funzionalita" className="hidden lg:block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Funzionalità
             </a>
-            <a href="#piani" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a href="#piani" className="hidden lg:block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Piani
             </a>
-            <a href="#innovazione" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a href="#innovazione" className="hidden lg:block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Innovazione
             </a>
-            <a href="#smaileup" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a href="#smaileup" className="hidden lg:block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               SmAile UP
             </a>
-            <Button size="sm" className="bg-primary hover:bg-primary/90" onClick={() => openContactDialog(
-              "richiedi-demo",
-              "Richiedi una Demo",
-              "Compila il form per ricevere accesso ad una demo personalizzata di 3D Clinical"
-            )}>
-              Richiedi Demo
+            <Button size="sm" className="bg-primary hover:bg-primary/90" asChild>
+              <a href="https://app.3dclinical.it" target="_blank" rel="noopener noreferrer">
+                Accedi
+              </a>
             </Button>
           </div>
         </div>
@@ -345,7 +343,7 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Piano Base */}
             <Card className="p-8 glass border-border/50 hover-lift animate-on-scroll flex flex-col">
               <div className="mb-4">
