@@ -743,8 +743,8 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 bg-muted/30 border-t border-border/50">
         <div className="container">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+            <div className="lg:col-span-1">
               <img
                 src="/logo.png"
                 alt="3D Clinical"
@@ -754,17 +754,30 @@ export default function Home() {
                 La piattaforma di comunicazione clinica per lo studio odontoiatrico digitale
               </p>
             </div>
-            
+
             <div>
-              <h4 className="font-semibold mb-4 text-display">Prodotto</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#funzionalita" className="hover:text-foreground transition-colors">Funzionalità</a></li>
-                <li><a href="#piani" className="hover:text-foreground transition-colors">Piani e prezzi</a></li>
-                <li><a href="#innovazione" className="hover:text-foreground transition-colors">Innovazione AR</a></li>
-              </ul>
+              <h4 className="font-semibold mb-4 text-display">Funzionalità</h4>
+              <p className="text-sm text-muted-foreground">
+                <a href="#funzionalita" className="hover:text-foreground transition-colors">Scopri tutte le funzionalità</a>
+              </p>
             </div>
-            
+
             <div>
+              <h4 className="font-semibold mb-4 text-display">Piani e Prezzi</h4>
+              <p className="text-sm text-muted-foreground">
+                <a href="#piani" className="hover:text-foreground transition-colors">Trova il piano adatto a te</a>
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-4 text-display">Innovazione AR</h4>
+              <p className="text-sm text-muted-foreground">
+                <a href="#innovazione" className="hover:text-foreground transition-colors">Esplora la realtà aumentata</a>
+              </p>
+            </div>
+
+            {/* Temporaneamente commentato - In attesa di contenuti */}
+            {/* <div>
               <h4 className="font-semibold mb-4 text-display">Azienda</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="#" className="hover:text-foreground transition-colors">Chi siamo</a></li>
@@ -772,16 +785,16 @@ export default function Home() {
                 <li><a href="#" className="hover:text-foreground transition-colors">Blog</a></li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className="font-semibold mb-4 text-display">Legale</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a></li>
                 <li><a href="#" className="hover:text-foreground transition-colors">Termini di servizio</a></li>
               </ul>
-            </div>
+            </div> */}
           </div>
-          
+
           <div className="pt-8 border-t border-border/50 text-center text-sm text-muted-foreground">
             <p>© 2026 3D Clinical. Tutti i diritti riservati.</p>
           </div>
