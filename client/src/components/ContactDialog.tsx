@@ -19,6 +19,7 @@ export function ContactDialog({ open, onOpenChange, type, title, description }: 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     message: ""
   });
 
@@ -42,7 +43,7 @@ export function ContactDialog({ open, onOpenChange, type, title, description }: 
 
       if (response.ok && data.success) {
         toast.success(data.message);
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", message: "" });
         onOpenChange(false);
       } else {
         // Handle rate limiting or validation errors
@@ -83,6 +84,16 @@ export function ContactDialog({ open, onOpenChange, type, title, description }: 
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               required
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="phone">Cellulare (opzionale)</Label>
+            <Input
+              id="phone"
+              type="tel"
+              placeholder="+39 123 456 7890"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             />
           </div>
           <div className="space-y-2">

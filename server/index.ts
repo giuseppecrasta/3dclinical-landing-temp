@@ -59,7 +59,7 @@ async function startServer() {
 
   // API endpoint for contact form (with rate limiting)
   app.post("/backend/contact", contactLimiter, async (req, res) => {
-    const { type, email, name, message } = req.body;
+    const { type, email, name, phone, message } = req.body;
 
     // Validate required fields
     if (!type || !email || !name) {
@@ -90,6 +90,7 @@ async function startServer() {
     // Sanitize inputs (basic XSS prevention)
     const sanitizedName = String(name).substring(0, 100);
     const sanitizedEmail = String(email).substring(0, 100);
+    const sanitizedPhone = phone ? String(phone).substring(0, 20) : "";
     const sanitizedMessage = message ? String(message).substring(0, 1000) : "";
 
     // Map types to email subjects
@@ -106,6 +107,7 @@ async function startServer() {
     console.log(`Type: ${type}`);
     console.log(`Subject: ${subject}`);
     console.log(`From: ${sanitizedName} <${sanitizedEmail}>`);
+    console.log(`Phone: ${sanitizedPhone || "N/A"}`);
     console.log(`Message: ${sanitizedMessage || "N/A"}`);
     console.log("====================");
 
@@ -156,6 +158,14 @@ async function startServer() {
                     <p style="margin: 4px 0 0; color: #1e293b; font-size: 16px;">${type}</p>
                   </td>
                 </tr>
+                ${sanitizedPhone ? `
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                    <strong style="color: #64748b; font-size: 13px; text-transform: uppercase;">Cellulare</strong>
+                    <p style="margin: 4px 0 0; color: #1e293b; font-size: 16px;"><a href="tel:${sanitizedPhone}" style="color: #0ea5e9; text-decoration: none;">${sanitizedPhone}</a></p>
+                  </td>
+                </tr>
+                ` : ''}
                 ${sanitizedMessage ? `
                 <tr>
                   <td style="padding: 12px 0;">
@@ -194,6 +204,7 @@ ${subject}
 Nome: ${sanitizedName}
 Email: ${sanitizedEmail}
 Tipo: ${type}
+${sanitizedPhone ? `Cellulare: ${sanitizedPhone}` : ''}
 ${sanitizedMessage ? `\nMessaggio:\n${sanitizedMessage}` : ''}
 
 ---
