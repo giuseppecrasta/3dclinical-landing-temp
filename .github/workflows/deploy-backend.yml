@@ -55,7 +55,7 @@ jobs:
           # IMPORTANTE: Assicurati di avere un file .env sul server in /root/.env.3dclinical-landing
           docker run -d \
             --name 3dclinical-landing \
-            -p 3000:3000 \
+            -p 3300:3000 \
             --restart unless-stopped \
             --env-file /root/.env.3dclinical-landing \
             3dclinical-landing:latest
