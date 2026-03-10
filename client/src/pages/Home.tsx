@@ -65,9 +65,9 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50 backdrop-blur-xl">
         <div className="container flex items-center justify-between h-20">
           <div className="flex items-center gap-2">
-            <img 
-              src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663031355817/jeqlQmGhgwsqIPbV.png" 
-              alt="3D Clinical" 
+            <img
+              src="/logo.png"
+              alt="3D Clinical"
               className="h-20 w-auto"
             />
           </div>
@@ -501,13 +501,13 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-8 animate-on-scroll">
                 <div className="flex items-center gap-6 mb-8">
-                  <img 
-                    src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663031355817/jeqlQmGhgwsqIPbV.png"
+                  <img
+                    src="/logo.png"
                     alt="3D Clinical"
                     className="h-12 w-auto"
                   />
                   <div className="text-2xl font-light text-muted-foreground">+</div>
-                  <img 
+                  <img
                     src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663031355817/fDBUFJfzwaLRveAb.png"
                     alt="SmAile UP"
                     className="h-16 w-auto"
@@ -745,9 +745,9 @@ export default function Home() {
         <div className="container">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <img 
-                src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663031355817/jeqlQmGhgwsqIPbV.png" 
-                alt="3D Clinical" 
+              <img
+                src="/logo.png"
+                alt="3D Clinical"
                 className="h-10 w-auto mb-4"
               />
               <p className="text-sm text-muted-foreground">
