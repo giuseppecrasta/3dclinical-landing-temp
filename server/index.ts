@@ -53,12 +53,12 @@ async function startServer() {
   app.use(express.json());
 
   // Health check endpoint (no rate limiting)
-  app.get("/api/health", (_req, res) => {
+  app.get("/backend/health", (_req, res) => {
     res.json({ status: "ok", timestamp: new Date().toISOString() });
   });
 
   // API endpoint for contact form (with rate limiting)
-  app.post("/api/contact", contactLimiter, async (req, res) => {
+  app.post("/backend/contact", contactLimiter, async (req, res) => {
     const { type, email, name, message } = req.body;
 
     // Validate required fields

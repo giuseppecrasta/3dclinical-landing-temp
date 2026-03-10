@@ -27,7 +27,7 @@ export function ContactDialog({ open, onOpenChange, type, title, description }: 
     setLoading(true);
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/backend/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

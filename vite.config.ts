@@ -172,8 +172,8 @@ export default defineConfig({
     strictPort: false, // Will find next available port if 3000 is busy
     host: true,
     proxy: {
-      "/api": {
-        target: "http://localhost:3002",
+      "/backend": {
+        target: "http://localhost:3001",
         changeOrigin: true,
       },
     },
